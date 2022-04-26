@@ -1,1 +1,2 @@
 2022-04-26 09:47:10,156 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2022-04-26 10:40:04,433 [Worker-31: Fetching remote refs from git@github.com:azerty0301/JavaEc.git] INFO  o.a.s.c.u.s.e.EdDSASecurityProviderRegistrar - getOrCreateProvider(EdDSA) created instance of net.i2p.crypto.eddsa.EdDSASecurityProvider
