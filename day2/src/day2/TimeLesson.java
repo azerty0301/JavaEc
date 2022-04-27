@@ -7,6 +7,7 @@ public class TimeLesson {
 
 	public static void main(String[] args) {
 		long start = System.currentTimeMillis();
+		start = System.currentTimeMillis();
 		String str = "Java";
 		for (int i = 0; i < 10000; i++) {
 			str += "Java";
@@ -35,6 +36,7 @@ public class TimeLesson {
 		c.setTime(now);
 		int y = c.get(Calendar.YEAR);
 		System.out.println("今年は" + y + "年です");
+		System.out.println("Hello");
 	}
 
 }
