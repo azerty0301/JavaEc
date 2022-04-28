@@ -9,6 +9,7 @@ public class PcApp {
 		pc.setUsb(new USBFan());
 		pc.executeUSB();
 		pc.setUsb(new USBLight());
+		pc.setUsb(new USBLight());
 		pc.executeUSB();
 	}
 
