@@ -13,6 +13,7 @@ public class AnimalApp {
 		list.add(new Pig("George"));
 		list.add(new Pigeon("Ringo"));
 		list.add(new Eagle("Peter"));
+		list.add(new Eagle("Peter"));
 		for(Animal a:list) {
 			a.introduce();
 			a.makeNoise();
