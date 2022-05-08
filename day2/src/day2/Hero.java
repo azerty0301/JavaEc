@@ -17,6 +17,5 @@ public boolean equals(Object o) {
 		}
 	}
 	return false;
-	kakunin;
 }
 }
