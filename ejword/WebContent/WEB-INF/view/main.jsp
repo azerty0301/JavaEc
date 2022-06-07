@@ -34,11 +34,11 @@
 	<p>全<%= total %>件中<%=(pageNo-1)*limit+1%>~<%=pageNo*limit > total? total:pageNo*limit %>件を表示</p>
 	<ul>
 	<% if(pageNo > 1){ %>
-	<li><a href = "/ejword/main?searchWord=<%=searchWord %>&mode=<%=mode %>&page=<%=pageNo-1%>">前へ</a>
-	<%{ %>
+	<li><a href = "/ejword/main?searchWord=<%=searchWord %>&mode=<%=mode %>&page=<%=pageNo-1%>">前へ</a></li>
+	<%} %>
 	<% if(pageNo * limit < total){ %>
-	<li><a href = "/ejword/main?searchWord=<%=searchWord %>&mode=<%=mode %>&page=<%=pageNo+1%>">次へ</a>
-	<%{ %>
+	<li><a href = "/ejword/main?searchWord=<%=searchWord %>&mode=<%=mode %>&page=<%=pageNo+1%>">次へ</a></li>
+	<%} %>
 	</ul>
 	<%} %>
 <table border = "1">
