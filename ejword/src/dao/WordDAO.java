@@ -40,70 +40,11 @@ public class WordDAO {
 			e.printStackTrace();
 		}
 	}
-	public List<Word> getListBySearchWord(String searchWord, String mode ){
-		List<Word> list=new ArrayList();
-		switch(mode) {
-		case "startsWith":
-			searchWord=searchWord+"%";
-		break;
-		case "contains":
-			searchWord="%" + searchWord + "%";
-			break;
-		case "endWith":
-			searchWord="%"+searchWord+"%";
-		}
-		try {
-			this.connect();
-			ps=db.prepareStatement("SELECT * FROM words WHERE title LIKE ?");
-			ps.setString(1, searchWord);
-			rs=ps.executeQuery();
-			while(rs.next()) {
-				String title = rs.getString("title");
-				String body = rs.getString("body");
-				Word w = new Word(title, body);
-				list.add(w);
-			}
-		} catch (NamingException | SQLException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}finally {
-			this.disconnect();
-		}
-		return list;
-		}
-	public List<Word> getListBySearchWord(String searchWord, String mode,int limit ){
-		List<Word> list=new ArrayList();
-switch(mode) {
-		case "startsWith":
-			searchWord=searchWord+"%";
-		break;
-		case "contains":
-			searchWord="%" + searchWord + "%";
-			break;
-		case "endWith":
-			searchWord="%"+searchWord+"%";
-		}
-		try {
-			this.connect();
-			ps=db.prepareStatement("SELECT * FROM words WHERE title LIKE ? LIMIT ?");
-			ps.setString(1, searchWord);
-			ps.setInt(2, limit);
-			rs=ps.executeQuery();
-			while(rs.next()) {
-				String title = rs.getString("title");
-				String body = rs.getString("body");
-				Word w = new Word(title, body);
-				list.add(w);
-			}
-		} catch (NamingException | SQLException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}finally {
-			this.disconnect();
-		}
-		return list;
-		}public List<Word> getListBySearchWord(String searchWord, String mode,int limit, int offset ){
-		List<Word> list=new ArrayList();
+
+
+	public List<Word> getListBySearchWord(String searchWord, String mode,int limit, int offset ){
+		List<Word> list=new ArrayList<>();
+		searchWord=this.modifySearchWord(searchWord,mode);
 switch(mode) {
 		case "startsWith":
 			searchWord=searchWord+"%";
@@ -161,5 +102,18 @@ switch(mode) {
 		}
 
 		return total;
+	}
+	private String modifySearchWord(String searchWord,String mode) {
+		switch(mode) {
+		case "startsWith":
+			searchWord=searchWord+"%";
+			break;
+		case "contains":
+			searchWord="%"+searchWord+"%";
+			break;
+		case "endsWith":
+			searchWord="%"+searchWord;
+		}
+		return searchWord;
 	}
 }
