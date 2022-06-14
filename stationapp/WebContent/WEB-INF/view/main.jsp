@@ -21,7 +21,7 @@
 </select>
 <input type = "submit" value="送信">
 </form>
-<%if(stationList != null){ %>
+<%if(stationList != null && stationList.size() != 0){ %>
 <ol>
 <%for(Station station : stationList){ %>
 <li><%=station.getName() %>(<%=station.getPrefecture()%>)</li>
